@@ -89,7 +89,13 @@ curl -Lo get-all.tar.gz $(curl -s https://api.github.com/repos/stackitcloud/kube
 ```
 
 #### Windows
-<https://github.com/stackitcloud/kubectl-get-all/releases/latest/download/get-all-windows-amd64.zip>
+```bash
+# AMD64
+curl -Lo get-all.zip $(curl -s https://api.github.com/repos/stackitcloud/kubectl-get-all/releases/latest | grep '"browser_download_url":' | grep 'windows' | grep 'amd64' | grep -o 'https://[^"]*')
+
+# ARM64
+curl -Lo get-all.zip $(curl -s https://api.github.com/repos/stackitcloud/kubectl-get-all/releases/latest | grep '"browser_download_url":' | grep 'windows' | grep 'arm64' | grep -o 'https://[^"]*')
+```
 
 ### From source
 
